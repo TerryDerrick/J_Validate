@@ -23,45 +23,71 @@ package j_validate;
  */
 public class arg_parser
 {
-    private String[] ErrorArgs;
-    
+
+    private String strSysType;
+
     public arg_parser()
     {
-        
+
     }
-    
+
+    public void SetSysType(String _strtempsys)
+    {
+        if (_strtempsys != null)
+        {
+            if (_strtempsys.contains("win"))
+            {
+                strSysType = "win";
+            } else if (_strtempsys.contains("win"))
+            {
+                strSysType = "nix";
+            } else if (_strtempsys.contains("mac"))
+            {
+                strSysType = "mac";
+            } else
+            {
+                strSysType = "win";
+            }
+        }
+
+    }
+
     public void DisplayListofArgs()
     {
-        System.out.println("please use the following arguments to specify the program behaviour");
-        System.out.println("-i:<input file> \"-i=//data/input/examplefile.txt\"");
+        switch (strSysType)
+        {
+            case "win":
+                System.out.println("please use the following arguments to specify the program behaviour");
+                System.out.println("-i <input file> \"-i C:\\data\\input\\examplefile.txt\"");
+                break;
+
+            case "nix":
+                System.out.println("please use the following arguments to specify the program behaviour");
+                System.out.println("-i <input file> \"-i //data/input/examplefile.txt\"");
+                break;
+
+            case "mac":
+                System.out.println("Mac OS is currently not supported");
+
+                break;
+
+            default:
+
+                break;
+        }
+
     }
-    
+
+   
+
     public boolean ValidateArguments(String[] _argtemp)
     {
-        
+        // Probably not required
         return true;
     }
-    
-    public void InvalidErrorOutput()
-    {
-        if ((ErrorArgs == null) || (ErrorArgs.length < 1))
-                {
-                    System.out.println("Unspecified Invalid Arguments");
-                }
-        else
-        {
-            InvalidErrorOutput(ErrorArgs);
-        }
-        
-    }
-    
-    public void InvalidErrorOutput(String[] _argerr)
-    {
-        System.out.println("Invalid Arguments");
-    }
-    
+
     public void ParseArguments(String[] _argtemp)
     {
-        
+       
     }
 }

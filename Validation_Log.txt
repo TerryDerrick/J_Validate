@@ -1,7 +1,7 @@
-2017-04-06 23:46:51 - Logging Started
-2017-04-06 23:46:52 - Windows 8.1
-2017-04-06 23:46:52 - 6.3
-2017-04-06 23:46:52 - amd64
-2017-04-06 23:46:52 - CPU CoreCount 4
-2017-04-06 23:46:52 - Free Memory :60mb
-2017-04-06 23:46:52 - Error:1 No Arguments Specified
+2017-04-04 21:55:31 - Logging Started
+2017-04-04 21:55:31 - Windows 7
+2017-04-04 21:55:31 - 6.1
+2017-04-04 21:55:31 - amd64
+2017-04-04 21:55:31 - CPU CoreCount 6
+2017-04-04 21:55:31 - Free Memory :241mb
+2017-04-04 21:55:31 - Error:1 No Arguments Specified

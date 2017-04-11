@@ -58,10 +58,10 @@ public class J_Validate
         // Handline command line input here
         if (args.length < 1)
         {
-            System.out.println("Error:1 No Arguments Specified");
+            System.out.println("Error: No Arguments Specified");
             try
             {
-                Logger.Log("Error:1 No Arguments Specified");
+                Logger.Log("Error: No Arguments Specified");
             } catch (IOException ex)
             {
                System.out.println(ex.toString());
@@ -79,7 +79,16 @@ public class J_Validate
             }
             else
             {
-                
+                 System.out.println("Error: Valid No Arguments Specified");
+            try
+            {
+                Logger.Log("Error: No Valid Arguments Specified");
+            } catch (IOException ex)
+            {
+               System.out.println(ex.toString());
+            }
+            ArgParser.DisplayListofArgs();
+            System.exit(0);
             }
         }
         
