@@ -25,6 +25,8 @@ public class arg_parser
 {
 
     private String strSysType;
+    
+    public parser_settings ParserSettingsObject;
 
     public arg_parser()
     {
@@ -88,6 +90,52 @@ public class arg_parser
 
     public void ParseArguments(String[] _argtemp)
     {
-       
+        ParserSettingsObject = new parser_settings();
+        boolean bitCommandFollower = false;
+        String strPrequelCommand = "";
+        
+        for (int numArg = 0; numArg < (_argtemp.length - 1) ; numArg++) 
+        {
+            //String tempArgument = _argtemp[numArg];
+            
+           
+                switch (_argtemp[numArg].toUpperCase())
+                {
+                    case "-I":
+                        bitCommandFollower  = true;
+                        strPrequelCommand = "I";
+                    break;
+                        
+                    case "-O":
+                        bitCommandFollower  = true;
+                        strPrequelCommand = "O";
+                        break;
+                    
+                    default:
+                        if (bitCommandFollower)
+                        {
+                            switch (strPrequelCommand)
+                            {
+                                case "I":
+                                    ParserSettingsObject.strInputPath = _argtemp[numArg];
+                                    break;
+                                    
+                                case "O":
+                                    ParserSettingsObject.strOutputPath = _argtemp[numArg];
+                                    break;
+                                
+                                default:
+                                    
+                                    break;
+                            }
+                        }
+                    break;
+                }
+            
+        }
+        
+        // Validate Paths as real/reachable
+            
+        
     }
 }
