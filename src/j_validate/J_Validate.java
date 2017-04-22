@@ -23,10 +23,12 @@ import java.io.IOException;
  *
  * @author Fox
  */
+
 public class J_Validate
 {
-
-    /**
+   // public parser_settings ParserSettingsObject; 
+     
+     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
@@ -34,16 +36,19 @@ public class J_Validate
         // try catch these, log and exit on failure
         os_check OSCheck = new os_check();
         Validate_Logger Logger = new Validate_Logger();
-        arg_parser ArgParser = new arg_parser();
+        //arg_parser ArgParser = new arg_parser();
+        parser_settings ParserSettingsObject = new parser_settings();
         
         
         if (OSCheck.bSysNix)
         {
             Logger.SetLineEndings("nix");
+            ParserSettingsObject.strSysType = "nix";
         }
         else if (OSCheck.bSysWin)
         {
             Logger.SetLineEndings("win");
+            ParserSettingsObject.strSysType = "win";
           
         }
         
@@ -59,6 +64,7 @@ public class J_Validate
         if (args.length < 1)
         {
             System.out.println("Error: No Arguments Specified");
+            
             try
             {
                 Logger.Log("Error: No Arguments Specified");
@@ -66,20 +72,14 @@ public class J_Validate
             {
                System.out.println(ex.toString());
             }
-            ArgParser.DisplayListofArgs();
+            JDisplayListofArgs(ParserSettingsObject.strSysType);
             System.exit(0);
         }
         else 
         {
             // Start argument parser
             
-            if (ArgParser.ValidateArguments(args))
-            {           
-                ArgParser.ParseArguments(args);
-            }
-            else
-            {
-                 System.out.println("Error: Valid No Arguments Specified");
+            
             try
             {
                 Logger.Log("Error: No Valid Arguments Specified");
@@ -87,10 +87,148 @@ public class J_Validate
             {
                System.out.println(ex.toString());
             }
-            ArgParser.DisplayListofArgs();
+            JDisplayListofArgs(ParserSettingsObject.strSysType);
             System.exit(0);
-            }
+            
         }
+        
+    }
+    
+   
+    
+    public static void JDisplayListofArgs(String _strSysType)
+    {
+        
+        switch (_strSysType)
+        {
+            case "win":
+                System.out.println("please use the following arguments to specify the program behaviour");
+                System.out.println("-i <input file> \"-i C:\\data\\input\\inputfile.txt\"");
+                System.out.println("-o <output file> \"-o C:\\data\\output\\outputfile.txt\"");
+                System.out.println("-e <extract file> \"-e C:\\data\\output\\extractsfile.txt\"");
+                System.out.println("");
+                System.out.println("For Use with a Settings File only Use the -s switch");
+                System.out.println("-s <jsettings.ini> \"-e C:\\data\\output\\jsettings.ini\"");
+                break;
+
+            case "nix":
+                System.out.println("please use the following arguments to specify the program behaviour");
+                System.out.println("-i <input file> \"-i //data/input/inputfile.txt\"");
+                System.out.println("-o <output file> \"-o //data/output/outputfile.txt\"");
+                System.out.println("-e <extract file> \"-e //data/output/extractsfile.txt\"");
+                System.out.println("");
+                System.out.println("For Use with a Settings File only Use the -s switch");
+                System.out.println("-s <jsettings.ini> \"-e //data/output/jsettings.ini\"");
+                break;
+
+            case "mac":
+                System.out.println("Mac OS is currently not supported");
+
+                break;
+
+            default:
+
+                break;
+        }
+
+    }
+    
+    
+    public boolean JValidateArguments(String[] _argtemp)
+    {
+        // Probably not required
+        return true;
+    }
+
+    public void JParseArguments(String[] _argtemp, parser_settings _settingObj)
+    {
+        
+        boolean bitCommandFollower = false;
+        String strPrequelCommand = "";
+        String strErrorResponse = "";
+        boolean bErrorFlag = false;
+        
+        
+        for (int numArg = 0; numArg < (_argtemp.length - 1) ; numArg++) 
+        {
+            //String tempArgument = _argtemp[numArg];
+            
+           
+                switch (_argtemp[numArg].toUpperCase())
+                {
+                    case "-I":
+                        bitCommandFollower  = true;
+                        strPrequelCommand = "I";
+                    break;
+                        
+                    case "-O":
+                        bitCommandFollower  = true;
+                        strPrequelCommand = "O";
+                        break;
+                        
+                    case "-M":
+                        bitCommandFollower  = true;
+                        strPrequelCommand = "M";
+                        break;
+                        
+                    case "-E":
+                        bitCommandFollower  = true;
+                        strPrequelCommand = "E";
+                        break;
+                    
+                    case "-?":
+                        bitCommandFollower  = false;
+                        strPrequelCommand = "";
+                        //DisplayListofArgs();
+                        System.exit(0);
+                        break;
+                    
+                    case "-S":
+                        // check for len, if more then 2 commands (S switch + filepath) then exit with error
+                        
+                    default:
+                        if (bitCommandFollower)
+                        {
+                            switch (strPrequelCommand)
+                            {
+                                case "I":
+                                    _settingObj.strInputPath = _argtemp[numArg];
+                                    break;
+                                    
+                                case "O":
+                                    _settingObj.strOutputPath = _argtemp[numArg];
+                                    break;
+                                
+                                case "M":
+                                    _settingObj.strFileValidationMask = _argtemp[numArg];
+                                    break;
+                                
+                                case "E":
+                                    _settingObj.strExtractPath = _argtemp[numArg];
+                                default:
+                                
+                                    break;
+                            }
+                        }
+                        else 
+                        {
+                            // Not a valid command
+                            bErrorFlag = true;
+                            strErrorResponse = "[ " + _argtemp[numArg] + " ] Is not a valid command!";
+                        }
+                    break;
+                    
+                
+                }
+            
+               if (bErrorFlag)
+               {
+                   break;
+               }
+        }
+        
+        // Validate Paths as real/reachable
+            
         
     }
     

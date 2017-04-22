@@ -21,31 +21,20 @@ package j_validate;
  *
  * @author Fox
  */
-public class parser_settings
+public class FileProcessorMain 
 {
-    public String strInputPath;
     
-    public String strOutputPath;
-    
-    public String strFileValidationMask;
-    
-    public String strSettingsFile;
-    
-    public String strExtractPath;
-    
-    public String strSysType;
-    
-    public parser_settings()
-    {
-        
-    }
-    
-    public boolean GetSettingsFromSettingsFile()
-    {
-        // Read from settings file inh object
-        // Read each setting in the file and populate the objects feilds after validating them
-        // Return true if success / return false if failed for any reason
-        
-        return false; //if failed
-    }
+
+
+public void FileProcessorMain()
+{
+
+}
+
+public void FileProcessorMain (parser_settings _objParserSettings)
+{
+
+}
+
+
 }
