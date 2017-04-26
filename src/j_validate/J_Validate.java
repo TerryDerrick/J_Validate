@@ -151,9 +151,14 @@ public class J_Validate
         
         for (int numArg = 0; numArg < (_argtemp.length - 1) ; numArg++) 
         {
-            //String tempArgument = _argtemp[numArg];
             
-           
+            
+
+            // loop through a list of commands, if command is valid select follower params if any and jump array forward to after, and loop again
+            // if command is invalid, grab invalid command and error, try and grab last valid command in case its a param that invalid
+            
+            
+            /*
                 switch (_argtemp[numArg].toUpperCase())
                 {
                     case "-I":
@@ -225,11 +230,51 @@ public class J_Validate
                {
                    break;
                }
+            */
         }
         
-        // Validate Paths as real/reachable
+        
             
         
+    }
+    
+    public boolean TestValidCommand(String _strTempCommand)
+    {
+        boolean bValidCommand = false;
+    
+            switch (_strTempCommand.toUpperCase())
+                {
+                    case "-I":
+                      bValidCommand = true;
+                    break;
+                        
+                    case "-O":
+                        bValidCommand = true;
+                        break;
+                        
+                    case "-M":
+                        bValidCommand = true;
+                        break;
+                        
+                    case "-E":
+                        bValidCommand = true;
+                        break;
+                    
+                    case "-?":
+                         bValidCommand = true;
+                        //JDisplayListofArgs();
+                        //System.exit(0);
+                        break;
+                    
+                    case "-S":
+                        // check for len, if more then 2 commands (S switch + filepath) then exit with error
+                         bValidCommand = true;
+                    break;
+                    default:
+                         bValidCommand = false;
+                        break;
+                }
+            return  bValidCommand;
     }
     
 }
