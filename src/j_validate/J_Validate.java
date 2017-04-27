@@ -134,11 +134,6 @@ public class J_Validate
     }
     
     
-    public boolean JValidateArguments(String[] _argtemp)
-    {
-        // Probably not required
-        return true;
-    }
 
     public void JParseArguments(String[] _argtemp, parser_settings _settingObj)
     {
