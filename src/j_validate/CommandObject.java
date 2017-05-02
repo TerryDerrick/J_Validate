@@ -25,7 +25,10 @@ public class CommandObject
 {
     public String Command;
     public int ParamCount;
-    public String ExampleCommand;
+    public String ExampleCommandWin;
+    public String ExampleCommandNix;
+    public String ExampleCommandMac;
+    public String CommandHelpText;
     
     public CommandObject NextCommandObject;
     public CommandObject PrevCommandObject;
@@ -36,10 +39,13 @@ public class CommandObject
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
     }
     
-    public CommandObject(String _strCommand, int _intParamCount, String _strExampleString)
+    public CommandObject(String _strCommand, int _intParamCount, String _strExampleString, String _strExampleStringNix, String _strExampleStringMac, String _strCommandHelpText)
     {
         Command = _strCommand;
         ParamCount = _intParamCount;
-        ExampleCommand = _strExampleString;
+        ExampleCommandWin = _strExampleString;
+        ExampleCommandNix = _strExampleStringNix;
+        ExampleCommandMac = _strExampleStringMac;
+        CommandHelpText = _strCommandHelpText;
     }
 }

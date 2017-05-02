@@ -143,7 +143,7 @@ public class J_Validate
         String strErrorResponse = "";
         boolean bErrorFlag = false;
         
-        
+        CommandLinkedList CommandParams = new CommandLinkedList();
         for (int numArg = 0; numArg < (_argtemp.length - 1) ; numArg++) 
         {
             
@@ -151,81 +151,54 @@ public class J_Validate
 
             // loop through a list of commands, if command is valid select follower params if any and jump array forward to after, and loop again
             // if command is invalid, grab invalid command and error, try and grab last valid command in case its a param that invalid
-            
-            
-            /*
-                switch (_argtemp[numArg].toUpperCase())
-                {
-                    case "-I":
-                        bitCommandFollower  = true;
-                        strPrequelCommand = "I";
-                    break;
-                        
-                    case "-O":
-                        bitCommandFollower  = true;
-                        strPrequelCommand = "O";
-                        break;
-                        
-                    case "-M":
-                        bitCommandFollower  = true;
-                        strPrequelCommand = "M";
-                        break;
-                        
-                    case "-E":
-                        bitCommandFollower  = true;
-                        strPrequelCommand = "E";
-                        break;
-                    
-                    case "-?":
-                        bitCommandFollower  = false;
-                        strPrequelCommand = "";
-                        //DisplayListofArgs();
-                        System.exit(0);
-                        break;
-                    
-                    case "-S":
-                        // check for len, if more then 2 commands (S switch + filepath) then exit with error
-                        
-                    default:
-                        if (bitCommandFollower)
+            if (CommandParams.FindCommandInListReturnValid(_argtemp[numArg]))
+                    {
+                        int numComCount = CommandParams.FindCommandInListReturnParams(_argtemp[numArg]);
+                        for (int i = 0; i < (numComCount -1); i++) 
                         {
-                            switch (strPrequelCommand)
-                            {
-                                case "I":
-                                    _settingObj.strInputPath = _argtemp[numArg];
-                                    break;
-                                    
-                                case "O":
-                                    _settingObj.strOutputPath = _argtemp[numArg];
-                                    break;
-                                
-                                case "M":
-                                    _settingObj.strFileValidationMask = _argtemp[numArg];
-                                    break;
-                                
-                                case "E":
-                                    _settingObj.strExtractPath = _argtemp[numArg];
-                                default:
-                                
-                                    break;
-                            }
+                            
                         }
-                        else 
-                        {
-                            // Not a valid command
-                            bErrorFlag = true;
-                            strErrorResponse = "[ " + _argtemp[numArg] + " ] Is not a valid command!";
-                        }
-                    break;
-                    
+                    }
+            else
+            {
+                // invalid command
+            }
+/*            
+            if  ("-I".equals(_argtemp[numArg].toUpperCase()))
+            {
                 
-                }
+                _settingObj.strInputPath = _argtemp[numArg];
+            }
             
-               if (bErrorFlag)
-               {
-                   break;
-               }
-            */
+            else if  ("-O".equals(_argtemp[numArg].toUpperCase()))
+            {
+                _settingObj.strOutputPath = _argtemp[numArg];
+            }
+            
+            else if  ("-M".equals(_argtemp[numArg].toUpperCase()))
+            {
+                _settingObj.strFileValidationMask = _argtemp[numArg];
+            }
+                
+            else if  ("-E".equals(_argtemp[numArg].toUpperCase()))
+            {
+                _settingObj.strExtractPath = _argtemp[numArg];
+            }
+            
+            else if  ("-S".equals(_argtemp[numArg].toUpperCase()))
+            {
+                
+            }    
+            
+            else if  ("-?".equals(_argtemp[numArg].toUpperCase()))
+            {
+                
+            }    
+            else
+            {
+                //invalid command
+            }
+  */             
         }
         
         
