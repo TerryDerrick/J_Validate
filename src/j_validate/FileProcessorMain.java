@@ -24,7 +24,8 @@ package j_validate;
 public class FileProcessorMain 
 {
     
-
+    private parser_settings objSettings;
+    private Validate_Logger objLogger;
 
     public FileProcessorMain()
     {
@@ -38,12 +39,15 @@ public class FileProcessorMain
 
     public FileProcessorMain (parser_settings _objParserSettings, Validate_Logger _logger)
     {
-
+            objSettings = _objParserSettings;
+            objLogger = _logger;
+            
+            FileProcessorRun();
     }
 
-    public void FileProcessorRun()
+    private void FileProcessorRun()
     {
-
+           
     }
     
     

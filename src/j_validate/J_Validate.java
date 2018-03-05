@@ -220,7 +220,7 @@ public class J_Validate
                     break;
                     
                 case "-S":
-                    if (_argtemp.length >= 2)
+                    if (_argtemp.length > 2)
                     {
                         System.out.println("-s must be the only command in use ");
                     }
@@ -251,6 +251,7 @@ public class J_Validate
     public static void JValidateSettings(parser_settings _settingObj)
     {
         // validate paths as valid or files can be accessed / found
+        // use getrealpath command to validate if input paths and files are real
     }
     
     public static void JParseSettingsFile(parser_settings _settingObj)
