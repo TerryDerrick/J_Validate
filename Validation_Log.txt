@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2017-09-16 16:33:04 - Logging Started
 2017-09-16 16:33:04 - Windows 7
 2017-09-16 16:33:04 - 6.1
@@ -5,3 +6,12 @@
 2017-09-16 16:33:04 - CPU CoreCount 32
 2017-09-16 16:33:04 - Free Memory :483mb
 2017-09-16 16:33:04 - Error: No Arguments Specified
+=======
+2017-04-28 19:45:05 - Logging Started
+2017-04-28 19:45:05 - Windows 7
+2017-04-28 19:45:05 - 6.1
+2017-04-28 19:45:05 - amd64
+2017-04-28 19:45:05 - CPU CoreCount 8
+2017-04-28 19:45:05 - Free Memory :242mb
+2017-04-28 19:45:05 - Error: No Arguments Specified
+>>>>>>> 97aabe55a38fc54fc55b95dca6a804fe70484660

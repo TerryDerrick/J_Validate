@@ -26,15 +26,25 @@ public class FileProcessorMain
     
 
 
-public void FileProcessorMain()
-{
+    public FileProcessorMain()
+    {
 
-}
+    }
 
-public void FileProcessorMain (parser_settings _objParserSettings)
-{
+    public FileProcessorMain (parser_settings _objParserSettings)
+    {
 
-}
+    }
 
+    public FileProcessorMain (parser_settings _objParserSettings, Validate_Logger _logger)
+    {
 
+    }
+
+    public void FileProcessorRun()
+    {
+
+    }
+    
+    
 }

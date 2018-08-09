@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Fox/Documents/GitHub/J_Validate/src/j_validate/J_Validate.java</file>
             <file>file:/C:/Users/Fox/Documents/GitHub/J_Validate/src/j_validate/parser_settings.java</file>
             <file>file:/C:/Users/Fox/Documents/GitHub/J_Validate/src/j_validate/os_check.java</file>
             <file>file:/C:/Users/Fox/Documents/GitHub/J_Validate/src/j_validate/Validate_Logger.java</file>
             <file>file:/C:/Users/Fox/Documents/GitHub/J_Validate/src/j_validate/FileProcessorMain.java</file>
+=======
+            <file>file:/C:/Code/J_Validate/src/j_validate/CommandObject.java</file>
+            <file>file:/C:/Code/J_Validate/src/j_validate/CommandLinkedList.java</file>
+            <file>file:/C:/Code/J_Validate/src/j_validate/Validate_Logger.java</file>
+            <file>file:/C:/Code/J_Validate/src/j_validate/J_Validate.java</file>
+            <file>file:/C:/Code/J_Validate/src/j_validate/parser_settings.java</file>
+            <file>file:/C:/Code/J_Validate/src/j_validate/FileProcessorMain.java</file>
+>>>>>>> 97aabe55a38fc54fc55b95dca6a804fe70484660
         </group>
     </open-files>
 </project-private>
